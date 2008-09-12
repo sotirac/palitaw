@@ -7,7 +7,8 @@
 		<ul>
     {% for entry in website.entries_one_to_ten %}   
 			<li><a href="{{entry.url}}">{{ entry.title }}</a></li>
-		{% endfor %}           
+		{% endfor %}      
+		{% if website.entries_eleven_to_twenty %}     
     <div id='{{website.title}}' style="display:none;">
 		  <div>
 		    {% for entry in website.entries_eleven_to_twenty %}   
@@ -17,6 +18,7 @@
 		</div>
 		</ul>
 		<a href="#" onclick="Effect.toggle('{{website.title}}', 'slide', { delay: 0.5 }); return false">More/Less</a>    
-		<br/></br/>
+		<br/></br/> 
+		{% endif %}
 {% endfor %}
 {% endblock %}
