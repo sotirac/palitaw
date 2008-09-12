@@ -8,16 +8,21 @@ def index(request):
 	websites = Website.objects.all()  
 	
 	for x_website in websites:
-		# remove the old entries from the database
-		entries_to_delete = Entry.objects.filter(website=x_website)  
-		if entries_to_delete:
-			for entry_to_delete in entries_to_delete:
-				entry_to_delete.delete()   
 		
 		# get the new entries and save them to the database	    
 		# save a maximum of 20 entries into the database
 		data = feedparser.parse(x_website.feed)      
-		number_of_entries = len(data['entries']) 
+		number_of_entries = len(data['entries'])   
+		                      
+		# only remove entries in the database, if you 
+		# have some new entries to put in.
+		# remove the old entries from the database 
+		if number_of_entries != 0:
+			entries_to_delete = Entry.objects.filter(website=x_website)  
+			if entries_to_delete:
+				for entry_to_delete in entries_to_delete:
+					entry_to_delete.delete()
+								
 		entries_to_save = 20
 		if number_of_entries < 20:      
 			entries_to_save = number_of_entries
