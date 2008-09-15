@@ -1,24 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for website in websites %} 
+{% for website in websites %}                                         
 		<br/></br/>
-    <h1><a href="{{website.url}}">{{ website.title }}</a></h1>         
-		<ul>
-    {% for entry in website.entries_one_to_ten %}   
-			<li><a href="{{entry.url}}">{{ entry.title }}</a></li>
+    <h1><b><a href="{{website.url}}">{{ website.title }}</a></b></h1>         
+    {% for entry in website.entries_one_to_ten %}  
+ 			<ul> 
+				{% block entry %}
+				  <li id="{{entry.url}}"><a href="{{entry.url}}">{{ entry.title }}</a></li>
+				{% endblock %}			 
+			</ul>
 		{% endfor %}      
 		{% if website.entries_eleven_to_twenty %}     
     <div id='{{website.title}}' style="display:none;">
 		  <div>
 		    {% for entry in website.entries_eleven_to_twenty %}   
-					<li><a href="{{entry.url}}">{{ entry.title }}</a></li>
+					<ul>
+						  <li><a href="{{entry.url}}">{{ entry.title }}</a></li>    
+					</ul>
 				{% endfor %}
 		  </div>
-		</div>
-		</ul>
-		<a href="#" onclick="Effect.toggle('{{website.title}}', 'slide', { delay: 0.5 }); return false">More/Less</a>    
+		</div>  
+		<a href="#" onclick="Effect.toggle('{{website.title}}', 'slide', { delay: 0.5 }); return false">More/Less</a>      
+		{% endif %} 		                                                                                                              
 		<br/></br/> 
-		{% endif %}
-{% endfor %}
+{% endfor %}  
 {% endblock %}

@@ -1,0 +1,26 @@
+- model: src.website
+  fields:
+    title: Our Awesome Planet
+    url: http://www.ourawesomeplanet.com
+    feed: http://feeds.feedburner.com/ourawesomeplanet
+- model: src.website
+  fields: 
+    title: The Unlawyer
+    url: http://www.unlawyer.net
+    feed: http://www.unlawyer.net/?feed=rss
+- model: src.website
+  fields:
+    title: Ivan About Town
+    url: http://www.ivanhenares.com/
+    feed: http://feeds.feedburner.com/IvanAboutTown
+- model: src.website
+  fields:
+    title: Walk This Way
+    url: http://celdrantours.blogspot.com/
+    feed: http://celdrantours.blogspot.com/feeds/posts/default?alt=rss
+- model: src.website
+  fields:
+    title: Manila Boy
+    url: http://spankyenriquez.blogspot.com/
+    feed: http://spankyenriquez.blogspot.com/feeds/posts/default?alt=rss
+        

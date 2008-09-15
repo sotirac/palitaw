@@ -20,7 +20,8 @@ class Website(models.Model):
 	  
 class Entry(models.Model): 
 	website = models.ForeignKey(Website)
-	title = models.CharField(max_length=200)    
+	title = models.CharField(max_length=200)
+	summary = models.TextField()   
 	url = models.CharField(max_length=200)
 	
 	def __unicode__(self):

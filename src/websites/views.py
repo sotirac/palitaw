@@ -29,9 +29,9 @@ def index(request):
 		for i in range(0, entries_to_save):         
 			xEntry = data.entries[i]
 			xTitle = xEntry.title
-			xLink = xEntry.link  
+			xLink = xEntry.link    
 			entry_to_save = Entry(website=x_website, title=xTitle, url=xLink)
 			entry_to_save.save()
 			
 	return render_to_response('websites/index.html', {'websites': websites})
-index = cache_page(index, 60 * 60)
+# index = cache_page(index, 60 * 60)
