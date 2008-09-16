@@ -1,28 +1,34 @@
 {% extends "base.html" %}
-
-{% block content %}
-{% for website in websites %}                                         
-		<br/></br/>
-    <h1><b><a href="{{website.url}}">{{ website.title }}</a></b></h1>         
-    {% for entry in website.entries_one_to_ten %}  
- 			<ul> 
-				{% block entry %}
-				  <li id="{{entry.url}}"><a href="{{entry.url}}">{{ entry.title }}</a></li>
-				{% endblock %}			 
-			</ul>
-		{% endfor %}      
-		{% if website.entries_eleven_to_twenty %}     
-    <div id='{{website.title}}' style="display:none;">
-		  <div>
-		    {% for entry in website.entries_eleven_to_twenty %}   
-					<ul>
-						  <li><a href="{{entry.url}}">{{ entry.title }}</a></li>    
-					</ul>
-				{% endfor %}
-		  </div>
-		</div>  
-		<a href="#" onclick="Effect.toggle('{{website.title}}', 'slide', { delay: 0.5 }); return false">More/Less</a>      
-		{% endif %} 		                                                                                                              
-		<br/></br/> 
-{% endfor %}  
-{% endblock %}
+          
+{% block content %}   
+	{% for website in websites %}
+	  {% if forloop.counter0|divisibleby:"3"  or forloop.first %}
+			<div class="yui-gb"> 
+	  {% endif %} 
+		
+	  <div class="{% cycle 'yui-u first' 'yui-u' 'yui-u' %}">
+			<h1><b><a href="{{website.url}}">{{ website.title }}</a></b></h1>         
+		  {% for entry in website.entries_one_to_ten %}  
+				<ul> 
+					  <li id="{{entry.url}}"><a href="{{entry.url}}">{{ entry.title }}</a></li>  
+				</ul>
+			{% endfor %}      
+			{% if website.entries_eleven_to_twenty %}     
+		  <div id='{{website.title}}' style="display:none;">
+			  <div>
+			    {% for entry in website.entries_eleven_to_twenty %}   
+						<ul>
+							  <li><a href="{{entry.url}}">{{ entry.title }}</a></li>    
+						</ul>
+					{% endfor %}
+			  </div>
+			</div>  
+			<a href="#" onclick="Effect.toggle('{{website.title}}', 'slide', { delay: 0.5 }); return false">More/Less</a>      
+			{% endif %}
+		</div> 
+	
+    {% if forloop.counter|divisibleby:"3" or forloop.last%}
+	    </div><!-- yui-gb closure -->
+    {% endif %}
+	{% endfor %} 
+{% endblock %}  
