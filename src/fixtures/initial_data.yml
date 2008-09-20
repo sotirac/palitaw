@@ -25,4 +25,56 @@ fields:
   category: 3
   title: "Our Awesome Planet"
   url: "http://www.ourawesomeplanet.com/"
-  feed: "http://feeds.feedburner.com/ourawesomeplanet"
+  feed: "http://feeds.feedburner.com/ourawesomeplanet"  
+
+model: src.website
+pk: 2
+fields:
+  category: 1
+  title: "Yugatech"
+  url: "http://www.yugatech.com/"
+  feed: "http://feeds.feedburner.com/yugatech/LjSi"
+
+model: src.website
+pk: 3
+fields:
+  category: 1
+  title: "The Unlawyer"
+  url: "http://www.unlawyer.net/"
+  feed: "http://www.unlawyer.net/?feed=rss"
+
+model: src.website
+pk: 4
+fields:
+  category: 1
+  title: "Ivan About Town"
+  url: "http://www.ivanhenares.com/"
+  feed: "http://www.ivanhenares.com/feeds/posts/default?alt=rss"
+
+model: src.website
+pk: 5
+fields:
+  category: 1
+  title: "Walk this way"
+  url: "http://celdrantours.blogspot.com/"
+  feed: "http://celdrantours.blogspot.com/feeds/posts/default?alt=rss" 
+
+model: src.website
+pk: 6
+fields:
+  category: 1
+  title: "Manila Boy"
+  url: "http://spankyenriquez.blogspot.com/"
+  feed: "http://spankyenriquez.blogspot.com/feeds/posts/default?alt=rss"
+
+Starmometer
+http://www.starmometer.com/
+http://www.starmometer.com/feed/rss/
+
+Get It from Boy
+http://getitfromboy.net/
+http://getitfromboy.net/feed/rss/
+
+EntrePinoys Atbp.
+http://www.mixph.com/
+http://feeds.feedburner.com/mixph/kBtz
