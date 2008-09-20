@@ -1,8 +1,10 @@
 {% extends "base.html" %}
-          
+        
 {% block content %}   
-	{% for website in websites %}
-	  {% if forloop.counter0|divisibleby:"3"  or forloop.first %}
+  <!-- MAIN -->
+	{% for website in main %}
+	  {% if forloop.counter0|divisibleby:"3"  or forloop.first %} 
+			<br/>
 			<div class="yui-gb"> 
 	  {% endif %} 
 		
@@ -25,10 +27,34 @@
 			</div>  
 			<a href="#" onclick="Effect.toggle('{{website.title}}', 'slide', { delay: 0.5 }); return false">More/Less</a>      
 			{% endif %}
-		</div> 
+		</div><!-- yui-u first/yui-u closure --> 
 	
     {% if forloop.counter|divisibleby:"3" or forloop.last%}
 	    </div><!-- yui-gb closure -->
     {% endif %}
 	{% endfor %} 
+	<!-- END OF MAIN -->
+	              
+	<!-- VOICES --> 
+	<br/><br/>
+	<h1><b>voices</b></h1>
+	{% for website in voices %}  
+	{% if forloop.counter0|divisibleby:"2"  or forloop.first %} 
+		<br/>
+		<div class="yui-g"> 
+  {% endif %} 
+	
+  <div class="{% cycle 'yui-u first' 'yui-u' 'yui-u' %}">
+		<b><a href="{{website.url}}">{{ website.title }}</a></b> : 
+	  {% for entry in website.entries_one %}  
+				  <a href="{{entry.url}}">{{ entry.title }}</a>  
+		{% endfor %} 	
+	</div><!-- yui-u first/yui-u closure --> 
+
+  {% if forloop.counter|divisibleby:"2" or forloop.last%}
+    </div><!-- yui-gb closure -->
+  {% endif %}
+	{% endfor %}  
+	<!-- END OF VOICES -->
+	
 {% endblock %}  

@@ -1,0 +1,28 @@
+model: src.category
+pk: 1
+fields:
+  title: "main"   
+
+model: src.category
+pk: 2
+fields:
+  title: "quickies" 
+
+model: src.category
+pk: 3
+fields:
+  title: "voices"
+
+model: src.category
+pk: 4
+fields:
+  title: "vlogs"
+
+
+model: src.website
+pk: 1
+fields: 
+  category: 3
+  title: "Our Awesome Planet"
+  url: "http://www.ourawesomeplanet.com/"
+  feed: "http://feeds.feedburner.com/ourawesomeplanet"

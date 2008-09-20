@@ -32,6 +32,11 @@ def index(request):
 			xLink = xEntry.link    
 			entry_to_save = Entry(website=x_website, title=xTitle, url=xLink)
 			entry_to_save.save()
-			  	
-	return render_to_response('websites/index.html', {'websites': websites})
+	
+	main = Website.objects.filter(category__title__exact='main')
+	voices = Website.objects.filter(category__title__exact='voices')	
+	quickies = Website.objects.filter(category__title__exact='quickies')
+	vlogs = Website.objects.filter(category__title__exact='vlogs')
+	return render_to_response('websites/index.html', {'main': main, 'voices': voices, 'quickies': quickies, 'vlogs': vlogs})
+# development
 index = cache_page(index, 60 * 60)

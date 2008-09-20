@@ -4,9 +4,11 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 admin.autodiscover() 
 
-urlpatterns = patterns('',  
-	# (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/caritos/webapps/palitaw/lib/python2.5/django/contrib/admin/media'}),
-	(r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/Users/eladio/code/palitaw/media'}),
+urlpatterns = patterns('', 
+    # development 
+	(r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/caritos/webapps/palitaw/lib/python2.5/django/contrib/admin/media'}),
+	# (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/Users/eladio/code/palitaw/media'}), 
+	
 	(r'^/?$', 'src.websites.views.index'),      
 	(r'^websites/$', 'src.websites.views.index'), 
 	
