@@ -39,22 +39,20 @@
 	<br/><br/>
 	<h1><b>voices</b></h1>
 	{% for website in voices %}  
-	{% if forloop.counter0|divisibleby:"2"  or forloop.first %} 
-		<br/>
-		<div class="yui-g"> 
-  {% endif %} 
-	
-  <div class="{% cycle 'yui-u first' 'yui-u' 'yui-u' %}">
-		<b><a href="{{website.url}}">{{ website.title }}</a></b> : 
-	  {% for entry in website.entries_one %}  
-				  <a href="{{entry.url}}">{{ entry.title }}</a>  
-		{% endfor %} 	
-	</div><!-- yui-u first/yui-u closure --> 
+		{% if forloop.counter0|divisibleby:"2"  or forloop.first %} 
+			<div class="yui-g"> 
+	  {% endif %} 
 
-  {% if forloop.counter|divisibleby:"2" or forloop.last%}
-    </div><!-- yui-gb closure -->
-  {% endif %}
+	  <div class="{% cycle 'yui-u first' 'yui-u' %}">
+			<b><a href="{{website.url}}">{{ website.title }}</a></b> : 
+		  {% for entry in website.entries_one %}  
+					  <a href="{{entry.url}}">{{ entry.title }}</a>  
+			{% endfor %} 	
+		</div><!-- yui-u first/yui-u closure --> 
+
+	  {% if forloop.counter|divisibleby:"2" or forloop.last %}
+	    </div><!-- yui-g closure -->
+	  {% endif %}  
 	{% endfor %}  
-	<!-- END OF VOICES -->
-	
+	<!-- END OF VOICES --> 
 {% endblock %}  
